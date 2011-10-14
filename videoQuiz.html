@@ -1,0 +1,63 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN"
+   "http://www.w3.org/TR/html4/strict.dtd">
+
+<html lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<title>videoQuiz</title>
+	<meta name="author" content="David Ball">
+	<!-- Date: 2011-10-14 -->
+	
+	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.5.2/jquery.min.js"></script>
+	<script type="text/javascript" src="videoQuiz.js"></script>
+  <style type="text/css" media="screen" src="videoQuiz.css"></style>
+  <link rel="stylesheet" href="videoQuiz.css" type="text/css" media="screen" charset="utf-8">
+  <script type="text/javascript" charset="utf-8">
+      $(function() {
+          $('#videoChooser').submit(function() {
+
+              var videoId = $('#videoId').val();
+              
+              $('#videoContainer').videoQuiz({
+                  'videoId': videoId,
+                  questions: [{
+                      text: $('#chooseQuestionText').val(),
+                      answers: [{
+                          left: parseInt($('#answer1Left').val()),
+                          top: parseInt($('#answer1Top').val())
+                      },
+                      {
+                          left: parseInt($('#answer2Left').val()),
+                          top: parseInt($('#answer2Top').val())
+                      }]
+                  }]
+              });
+              return false;
+          })
+      });
+  </script>
+</head>
+<body>
+Testing a Video 
+<form id="videoChooser">
+    Video Id: <input id="videoId" type="textbox" value="EzjkBwZtxp4"/>
+  <br/>
+  Optional Question Text: <input id ="chooseQuestionText" type="textbox" value = "Where is the violinist's nose?"/>
+  <br/>
+  Answer 1 left: <input id ="answer1Left" type="textbox" value = "20"/>
+  <br/>
+  Answer 1 top: <input id ="answer1Top" type="textbox" value = "40"/>
+  <br/>
+  
+  Answer 2 left: <input id ="answer2Left" type="textbox" value = "260"/>
+  <br/>
+  
+  Answer 2 top: <input id ="answer2Top" type="textbox" value = "90"/>
+  <br/>
+  
+    <input type="submit"/>
+  </form>
+  
+  <div id="videoContainer"></div>
+</body>
+</html>

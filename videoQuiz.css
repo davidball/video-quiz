@@ -1,0 +1,24 @@
+.questionContainer {
+z-index:200;
+position:absolute;
+}
+.questionContainer input[type="checkbox"] {
+position:absolute;
+}
+.questionContainer .questionText {
+background-color:#eee;
+color:#000;
+position:absolute;
+left:10px;
+top:20px;
+padding:5px;
+font-size:14px;
+width:200px;
+}
+.questionContainer button.done {
+position:absolute;
+left:440px;
+top:250px;
+height:50px;
+width:100px;
+}

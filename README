@@ -1,0 +1,21 @@
+JQuery Plugin used to overlay a quiz question on top of a YouTube video.
+
+Sample Usage:
+
+var videoId = 'someYouTubeVideoID';
+
+$('#videoContainer').videoQuiz({
+    'videoId': videoId,
+    questions: [{
+        text: "Does this work?",
+        answers: [{
+            left: 30,
+            top: 30
+        },
+        {
+            left: 140,
+            top: 150
+        }]
+    }]
+});
+
