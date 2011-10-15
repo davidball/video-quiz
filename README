@@ -1,0 +1,117 @@
+JQuery Plugin used to overlay a quiz question on top of a YouTube video.
+
+Sample Usage:
+
+var videoId = 'someYouTubeVideoID';
+$('#videoContainer').videoQuiz({
+	'videoId': videoId,
+	
+	result: {
+		time: 80,
+		oncomplete: function() {
+			alert(this.questionsAnsweredCorrectly + "/" + this.questionsAnswered + ": " + Math.round(this.questionsAnsweredCorrectly * 100 / this.questionsAnswered) + "%.");
+		}
+	},
+	questions: [
+		{
+			start: 5,
+			stop: 15,
+			text: "Quiz 1:<BR> The Demo",
+			left: 45,
+			top: 200
+		}, {
+			start: 16,
+			stop: 26,
+			text: "Don't rewind or fast forward.<BR> (Haven't implemented that yet.)",
+			left: 250,
+			top: 200
+		},	{
+			start: 32,
+			stop: 40,	
+			column: 300,	
+			answers: [{
+				text: "42",
+				response: {
+					text: "Ha ha, no.",
+					background: "#FCC"
+				},
+				correct: true,
+			},
+			{
+				text: "2",
+				correct: true,
+				response: {
+					text: "Right!",
+					background: "#CFC"
+				},
+				
+			},
+			{
+				text: "11",
+				response: {
+					text: "We speak decimal here, kid!",
+					background: "#FCC"
+				},
+			}]
+		},	{
+			start: 49,
+			stop: 57,	
+			column: 300,	
+			answers: [{
+				text: "42",
+				response: {
+					text: "Wrong! That's not even grammatically valid!",
+					background: "#FCC"
+				},
+				correct: true,
+			},
+			{
+				text: "It's prime!",
+				response: {
+					text: "Wrong! It's got an easy factor: 3.",
+					background: "#FCC"
+				},
+				
+			},
+			{
+				text: "It's a cube!",
+				correct: true,
+				response: {
+					text: "Yup! 3 x 3 x 3!",
+					background: "#CFC"
+				},
+			}]
+		},	{
+			start: 71,
+			stop: 76,	
+			answers: [{
+				text: "42",
+				correct: true,
+				left: 20, top: 200,
+				response: {
+					text: "You big geek!",
+					background: "#CCF"
+				},
+			},
+			{
+				text: "Quizzes!",
+				correct: true,
+				left: 160, top: 200,
+				response: {
+					text: "Neeerrrrd!",
+					background: "#CCF"
+				},
+				
+			},
+			{
+				text: "Something to do with sandals?",
+				correct: true,
+				left: 300, top: 200,
+				response: {
+					text: "Let me guess: you watch a lot of bad movies.",
+					background: "#CCF"
+				},
+			}]
+		}
+	]
+});
