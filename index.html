@@ -1,0 +1,142 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN"
+   "http://www.w3.org/TR/html4/strict.dtd">
+
+<html lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<title>videoQuiz</title>
+	<meta name="author" content="David Ball">
+	<!-- Date: 2011-10-14 -->
+	
+	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.5.2/jquery.min.js"></script>
+	<script type="text/javascript" src="videoQuiz.js"></script>
+	<script type="text/javascript" src="quiz.js"></script>
+  <style type="text/css" media="screen" src="videoQuiz.css"></style>
+  <link rel="stylesheet" href="videoQuiz.css" type="text/css" media="screen" charset="utf-8">
+  <script type="text/javascript" charset="utf-8">
+	$(function() {	// after the DOM has loaded....
+		var videoId = 'aSZyrLcU8rg';
+
+		$('#videoContainer').videoQuiz({
+			quiz: {
+				'videoId': videoId,
+				
+				result: {
+					time: 80,
+					oncomplete: function() {
+						alert(this.questionsAnsweredCorrectly + "/" + this.questionsAnswered + ": " + Math.round(this.questionsAnsweredCorrectly * 100 / this.questionsAnswered) + "%.");
+					}
+				},
+				questions: [
+					{
+						start: 5,
+						stop: 15,
+						text: "Quiz 1: The Demo<BR>You're in the right place!",
+						left: 45,
+						top: 200
+					}, {
+						start: 16,
+						stop: 26,
+						text: "Don't rewind or fast forward.<BR> (Haven't implemented that yet.)",
+						left: 250,
+						top: 200
+					},	{
+						start: 32,
+						stop: 40,	
+						column: 300,	
+						answers: [{
+							text: "42",
+							response: {
+								text: "Ha ha, no.",
+								background: "#FCC"
+							},
+							correct: true,
+						},
+						{
+							text: "2",
+							correct: true,
+							response: {
+								text: "Right!",
+								background: "#CFC"
+							},
+							
+						},
+						{
+							text: "11",
+							response: {
+								text: "We speak decimal here, kid!",
+								background: "#FCC"
+							},
+						}]
+					},	{
+						start: 49,
+						stop: 57,	
+						column: 300,	
+						answers: [{
+							text: "42",
+							response: {
+								text: "Wrong! That's not even grammatically valid!",
+								background: "#FCC"
+							},
+							correct: true,
+						},
+						{
+							text: "It's prime!",
+							response: {
+								text: "Wrong! It's got an easy factor: 3.",
+								background: "#FCC"
+							},
+							
+						},
+						{
+							text: "It's a cube!",
+							correct: true,
+							response: {
+								text: "Yup! 3 x 3 x 3!",
+								background: "#CFC"
+							},
+						}]
+					},	{
+						start: 71,
+						stop: 76,	
+						answers: [{
+							text: "42",
+							correct: true,
+							left: 20, top: 200,
+							response: {
+								text: "You big geek!",
+								background: "#CCF"
+							},
+						},
+						{
+							text: "Quizzes!",
+							correct: true,
+							left: 160, top: 200,
+							response: {
+								text: "Neeerrrrd!",
+								background: "#CCF"
+							},
+							
+						},
+						{
+							text: "Something to do with sandals?",
+							correct: true,
+							left: 300, top: 200,
+							response: {
+								text: "Let me guess: you watch a lot of bad movies.",
+								background: "#CCF"
+							},
+						}]
+					}
+				]
+			}
+		});
+	});
+  </script>
+</head>
+<body>
+  <div>This is a quiz demo using <a href="https://github.com/davidball/video-quiz">this</a> library. </div>
+  <div class="videoContainer" id="videoContainer"></div>
+</body>
+
+</HTML>

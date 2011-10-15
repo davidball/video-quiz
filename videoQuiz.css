@@ -1,0 +1,51 @@
+.videoContainer {
+	position: absolute;
+}
+.questionContainer {
+	z-index:200;
+	position:absolute;
+	left: 0px;
+	top: 0px;
+	
+}
+.questionContainer .questionText {
+background-color:#eee;
+color:#000;
+position:absolute;
+left:10px;
+top:20px;
+padding:5px;
+font-size:14px;
+width:200px;
+}
+.questionContainer .answer {
+	background-color: #eee;
+	position: absolute;
+	padding: 5px;
+	margin: 5px;
+	border: solid 1px black;
+	width: 150px;
+	cursor: pointer;
+}
+.quizResponse {
+	background-color: #eee;
+	position: absolute;
+	padding: 5px;
+	margin: 5px;
+	border: solid 1px black;
+	cursor: pointer;
+}
+
+
+
+.questionContainer input[type="checkbox"] {
+position:absolute;
+}
+
+.questionContainer button.done {
+	position:absolute;
+	left:440px;
+	top:250px;
+	height:50px;
+	width:100px;
+}
