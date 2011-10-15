@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 .videoContainer {
 	position: absolute;
 }
@@ -8,14 +7,6 @@
 	left: 0px;
 	top: 0px;
 	
-=======
-.questionContainer {
-z-index:200;
-position:absolute;
-}
-.questionContainer input[type="checkbox"] {
-position:absolute;
->>>>>>> 6359b9765eb4e4959e36d2fda4b7db19109b3e78
 }
 .questionContainer .questionText {
 background-color:#eee;
@@ -27,7 +18,6 @@ padding:5px;
 font-size:14px;
 width:200px;
 }
-<<<<<<< HEAD
 .questionContainer .answer {
 	background-color: #eee;
 	position: absolute;
@@ -59,12 +49,3 @@ position:absolute;
 	height:50px;
 	width:100px;
 }
-=======
-.questionContainer button.done {
-position:absolute;
-left:440px;
-top:250px;
-height:50px;
-width:100px;
-}
->>>>>>> 6359b9765eb4e4959e36d2fda4b7db19109b3e78
