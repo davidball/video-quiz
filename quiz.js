@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 /* Fundamental quiz functionality. Distinct from jquery/youtube functionality. */
 
 // CP: Global variable to hold all quiz objects for purposes of grading, submitting, and time response. Allows for multiple quizzes.
@@ -204,11 +205,26 @@ Quiz.prototype = {
         
     },
     displayResults:function() {
+=======
+var Quiz = function(whateverInitiallizingParamsWeWant) {
+    
+};
+
+Quiz.prototype = {
+    onAnswer:function(blah) {
+        
+    },
+    onComlete:function(blah) {
+        
+    },
+    displayResults:function(blah) {
+>>>>>>> 6359b9765eb4e4959e36d2fda4b7db19109b3e78
         
     }
 }
 
 
+<<<<<<< HEAD
 
 // CP Here are some quiz functions required to do time-based responses. Someone more familiar with jquery best practice could probably
 // put these in a better location. In prototype, I just stick them in classes - quiz class, question class, maybe an answer class.
@@ -266,3 +282,11 @@ function quizAnswer(rawAnswerID) {
 		}
 	}
 };
+=======
+/*usage
+
+var x = new Quiz();
+...
+x.displayResults();
+*/
+>>>>>>> 6359b9765eb4e4959e36d2fda4b7db19109b3e78

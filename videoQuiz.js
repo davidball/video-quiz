@@ -1,10 +1,35 @@
 /*
+<<<<<<< HEAD
 JQuery Plugin used to overlay a quiz question on top of a youtube video. Requires quiz.js to do the
 actual quiz part.
 
 See readme.
 */
 
+=======
+JQuery Plugin used to overlay a quiz question on top of a youtube video.
+
+Sample Usage:
+
+var videoId = 'someYouTubeVideoID';
+
+$('#videoContainer').videoQuiz({
+    'videoId': videoId,
+    questions: [{
+        text: "Does this work?",
+        answers: [{
+            left: 30,
+            top: 30
+        },
+        {
+            left: 140,
+            top: 150
+        }]
+    }]
+});
+
+*/
+>>>>>>> 6359b9765eb4e4959e36d2fda4b7db19109b3e78
  (function($j) {
 
     var iFrameApiInitted = false,
@@ -76,17 +101,23 @@ See readme.
         //Youtube api said as of 9.14.11 event.data but that's undefined, now seems to be event.target.a.playerState
         //10.14.11 even more confusing now i'm finding it in event.target.f not event.target.a but can't find any documentation of this
         //behavior
+<<<<<<< HEAD
 		
 		// CP The data it sends appears to be limited to START (3), PAUSE (2), and PLAYING (1). This doesn't appear to send
 		// seek events, although the yt player prints seek events to the console, so they exist SOMEWHERE.
 		
         //console.log('onPlayerStateChange');
         //console.log(event);
+=======
+        console.log('onPlayerStateChange');
+        console.log(event);
+>>>>>>> 6359b9765eb4e4959e36d2fda4b7db19109b3e78
         var findPlayer = event.data || event.target.a || event.target.f;
         if (findPlayer && findPlayer.playerState == YT.PlayerState.PLAYING && !done) {
             //setTimeout(stopVideo, 6000);
             done = true;
         }
+<<<<<<< HEAD
 		playerStateInterpreter(event.data);
     };
 	
@@ -103,6 +134,9 @@ See readme.
 			case 3: console.log("PLAY"); break;
 		}
 	};
+=======
+    };
+>>>>>>> 6359b9765eb4e4959e36d2fda4b7db19109b3e78
 
     var onPlayerReady = function(event) {
         //   event.target.playVideo();
@@ -111,6 +145,7 @@ See readme.
     }
     var methods = {
         init: function(options) {
+<<<<<<< HEAD
 			var quiz = options.quiz;
 			
 			if (! quiz)
@@ -123,11 +158,45 @@ See readme.
 			
 			var unwrappedDiv = this[0];
             addPlayerIFrame(quiz.videoId, unwrappedDiv, quiz.width, quiz.height);
+=======
+            options = options || {};
+            var unwrappedDiv = this[0];
+
+            addPlayerIFrame(options.videoId, unwrappedDiv, options.width, options.height);
+
+            var questionContainer = this.find('.questionContainer');
+            if (questionContainer.length === 0) {
+                questionContainer = $('<div class="questionContainer"/>').appendTo(this);
+            }
+            if (options.questions) {
+                var questionDOM;
+                $.each(options.questions,
+                function() {
+                    if (this.text) {
+                        //text is optional. afterall the question may be in the video itself.
+                        questionDOM = $('<div class="questionText"/>').text(this.text).appendTo(questionContainer);
+                    }
+
+                    var answers = this.answers;
+                    $.each(answers,
+                    function(index) {
+                        var answer_id = this.id || ('answer_' + index);
+                        var cb = $('<input type="checkbox"/>').attr('id', answer_id).css('left', this.left).css('top', this.top).appendTo(questionDOM);
+                    });
+                    var ok = $('<button class="done">Done</button>').appendTo(questionContainer);
+                });
+            }
+>>>>>>> 6359b9765eb4e4959e36d2fda4b7db19109b3e78
         }
     };
 
     $j.fn.videoQuiz = function(method) {
+<<<<<<< HEAD
 		// Method calling logic
+=======
+
+        // Method calling logic
+>>>>>>> 6359b9765eb4e4959e36d2fda4b7db19109b3e78
         if (methods[method]) {
             return methods[method].apply(this, Array.prototype.slice.call(arguments, 1));
         } else if (typeof method === 'object' || !method) {
@@ -139,4 +208,7 @@ See readme.
     };
 
 })(jQuery);
+<<<<<<< HEAD
 
+=======
+>>>>>>> 6359b9765eb4e4959e36d2fda4b7db19109b3e78
